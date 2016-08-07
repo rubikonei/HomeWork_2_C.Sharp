@@ -4,6 +4,17 @@
     {
         private int temperature;
 
+        public Convector(string name, bool state)
+        {
+            this.name = name;
+            this.state = state;
+            if (state == true)
+            {
+                Temperature = 20;
+                Power = 1.5;
+            }
+        }
+
         public override int Temperature
         {
             get
@@ -23,17 +34,6 @@
             }
         }
 
-        public Convector(string name, bool state)
-        {
-            this.name = name;
-            this.state = state;
-            if (state == true)
-            {
-                Temperature = 20;
-                Power = 1.5;
-            }
-        }
-
         public override void On()
         {
             state = true;
@@ -48,13 +48,13 @@
             Temperature = 0;
         }
 
-        public override void SetAutoTemperature(int temperatureEnvironment)
+        public override void SetAutoTemperature()
         {
-            if (temperatureEnvironment <= 10 && temperatureEnvironment >= -30)
+            if (TemperatureEnvironment <= 10 && TemperatureEnvironment >= -30)
             {
                 On();
                 Temperature = 20;
-                Power += (Temperature - temperatureEnvironment) * 0.05;
+                Power += (Temperature - TemperatureEnvironment) * 0.05;
             }
             else
             {

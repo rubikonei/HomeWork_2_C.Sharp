@@ -1,9 +1,21 @@
 ﻿namespace SmartHouse
 {
-    public class Conditioner : ClimateDevice, IFan, IConditionerMode
+    public class Conditioner : ClimateDevice, IFan
     {
         private int temperature;
         private bool fan;
+
+        public Conditioner(string name, bool state, bool fan)
+        {
+            this.name = name;
+            this.state = state;
+            if (state == true)
+            {
+                Temperature = 22;
+                Power = 2;
+            }
+            Fan = fan;
+        }
 
         public override int Temperature
         {
@@ -45,18 +57,6 @@
             }
         }
 
-        public Conditioner(string name, bool state, bool fan)
-        {
-            this.name = name;
-            this.state = state;
-            if (state == true)
-            {
-                Temperature = 22;
-                Power = 2;
-            }
-            Fan = fan;
-        }
-
         public override void On()
         {
             state = true;
@@ -81,28 +81,13 @@
             Fan = false;
         }
 
-        public void SetNightMode()
+        public override void SetAutoTemperature()
         {
-            Temperature = 20;
-        }
-
-        public void FreshAir()
-        {
-            if (state == true)
-            {
-                Temperature = 0;
-                Power = 0;
-                Fan = true;
-            }
-        }
-
-        public override void SetAutoTemperature(int temperatureEnvironment)
-        {
-            if (temperatureEnvironment >= 25 && temperatureEnvironment <= 40)
+            if (TemperatureEnvironment >= 25 && TemperatureEnvironment <= 40)
             {
                 On();
                 Temperature = 22;
-                Power += (temperatureEnvironment - Temperature) * 0.05;
+                Power += (TemperatureEnvironment - Temperature) * 0.05;
             }
             else
             {

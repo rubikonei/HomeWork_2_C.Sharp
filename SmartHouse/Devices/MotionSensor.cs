@@ -2,20 +2,19 @@
 
 namespace SmartHouse
 {
-    public class MotionSensor : Device
+    public class MotionSensor : Device, IAlarmed
     {
-        public event Alarm alarmed;
         private bool isAlarm;
+        private string info;
 
         public MotionSensor(string name, bool state)
         {
             this.name = name;
             this.state = state;
-            if (state == true)
-            {
-                Power = 0.05;
-            }
         }
+
+        public event Alarm alarmed;
+
         public override void On()
         {
             state = true;
@@ -27,6 +26,7 @@ namespace SmartHouse
         {
             state = false;
             Power = 0;
+            isAlarm = false;
         }
 
         private void GenerateAlarm()
@@ -48,12 +48,15 @@ namespace SmartHouse
 
         public override string ToString()
         {
-            string mode = ", Чисто";
             if (isAlarm)
             {
-                mode = ", Сработал датчик движения!";
+                info = ", Сработал датчик движения!";
             }
-            return base.ToString() + mode;
+            else
+            {
+                info = "";
+            }
+            return base.ToString() + info;
         }
     }
 }

@@ -46,32 +46,21 @@
     <Compile Include="AbstractDevices\ClimateDevice.cs" />
     <Compile Include="Delegates\Alarm.cs" />
     <Compile Include="Devices\EnergyMeter.cs" />
-    <Compile Include="Enums\BrightnessLevel.cs" />
-    <Compile Include="Enums\FilmList.cs" />
-    <Compile Include="Enums\ChannelList.cs" />
     <Compile Include="Factory\Factory.cs" />
-    <Compile Include="Interfaces\IAutoMode.cs" />
+    <Compile Include="Interfaces\IAlarmed.cs" />
     <Compile Include="Interfaces\ICountEnergy.cs" />
-    <Compile Include="Interfaces\IConditionerMode.cs" />
-    <Compile Include="Interfaces\IAutoTemperature.cs" />
     <Compile Include="Interfaces\IFan.cs" />
+    <Compile Include="Interfaces\ITemperatureSensor.cs" />
     <Compile Include="Menu\Menu.cs" />
-    <Compile Include="Devices\ClimateControl.cs" />
     <Compile Include="Devices\Conditioner.cs" />
     <Compile Include="AbstractDevices\Device.cs" />
     <Compile Include="Devices\Convector.cs" />
-    <Compile Include="Devices\HomeCinema.cs" />
-    <Compile Include="Devices\Illuminator.cs" />
     <Compile Include="Interfaces\IAlert.cs" />
-    <Compile Include="Interfaces\IVolume.cs" />
-    <Compile Include="Interfaces\IProgram.cs" />
     <Compile Include="Interfaces\ITemperature.cs" />
-    <Compile Include="AbstractDevices\MultimediaDevice.cs" />
     <Compile Include="Devices\MotionSensor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Devices\Signaling.cs" />
-    <Compile Include="Devices\TV.cs" />
     <Compile Include="Devices\TemperatureSensor.cs" />
   </ItemGroup>
   <ItemGroup>

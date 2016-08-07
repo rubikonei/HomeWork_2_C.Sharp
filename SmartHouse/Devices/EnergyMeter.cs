@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SmartHouse
 {
     public class EnergyMeter : Device, ICountEnergy
     {
-        public double AllPower;
+        private double allPower;
 
         public EnergyMeter(string name, bool state)
         {
@@ -25,16 +26,19 @@ namespace SmartHouse
 
         public void CountEnergy(Dictionary<string, Device> devices) 
         {
-            AllPower = 0;
-            foreach (KeyValuePair<string, Device> device in devices)
+            if (state == true)
             {
-                AllPower += device.Value.Power;
+                allPower = 0;
+                foreach (KeyValuePair<string, Device> device in devices)
+                {
+                    allPower += device.Value.Power;
+                }
             }
         }
 
         public override string ToString()
         {
-            return base.ToString() + ", потребляемая эл-гия: " + AllPower;
+            return base.ToString() + ", потребляемая эл-гия: " + allPower;
         }
     }
 }

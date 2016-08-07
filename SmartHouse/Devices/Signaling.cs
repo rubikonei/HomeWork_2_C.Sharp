@@ -2,28 +2,25 @@
 {
     public class Signaling : Device, IAlert
     {
-        public string info;
+        private string info;
 
         public Signaling(string name, bool state)
         {
             this.name = name;
             this.state = state;
-            if (state == true)
-            {
-                Power = 0.1;
-            }
         }
 
         public override void On()
         {
             state = true;
-            Power = 0.1;
+            Power = 0.05;
         }
 
         public override void Off()
         {
             state = false;
             Power = 0;
+            info = "";
         }
 
         public void Alert()
