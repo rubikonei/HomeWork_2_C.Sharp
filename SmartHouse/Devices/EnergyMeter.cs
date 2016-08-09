@@ -21,7 +21,8 @@ namespace SmartHouse
 
         public override void Off()
         {
-            // no realisation, it's energy meter, it always has to be turned on!
+            state = false;
+            Power = 0;
         }
 
         public void CountEnergy(Dictionary<string, Device> devices) 

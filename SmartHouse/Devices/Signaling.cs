@@ -27,7 +27,7 @@
         {
             if (state == true)
             {
-                info = " \aThere are thiefs in the house";
+                info = " \aВнимание! В Доме воры!";
             }
         }
 
